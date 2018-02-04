@@ -1,0 +1,42 @@
+Features:
+
+First Version
+-------------
+
+User can create player
+	- Different classes(with differing bonuses for each class)
+Player can move to locations
+Location can have a monster to fight
+If Player defeats the monster, they receive
+	- Experience points, gold, random loot
+If Player loses to monster, they
+	- Return home(a set location)
+	- Are completely healed
+	- Lose a certain amount of gold
+The location might have a quest
+	- Completing the quest requires turning in an item
+		- Item is from monster loot
+	- When the Player has the quest completion item and returns to location where they got the quest
+		- Receive experience, gold, reward item
+Location might have a trader
+	- Player can buy/sell items for gold
+Player can save/load game
+
+Additional Versions
+-------------------
+
+Automated tests of code
+Support multiple languages
+Improved graphics(JRPG?)
+Player can learn crafting skills to create items
+	- Crafting requires recipes and level
+Player can learn and use spells(and moves)
+Scrolls, more potions
+Add armor
+Add magic items
+Ability to enchant items
+Add pets
+	- Helps in combat? Change name?
+More complex combat(apply armor/weapon/jewelry/potion/spell bonuses)
+Populate world(locations/monsters/items/quests/etc.) from disk(files or DB)
+Game creator app, let people create their own locations/monsters/items/quests/etc without writing any code(creates files or adds to DB)
