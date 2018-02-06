@@ -8,19 +8,19 @@
         Title="Jerry's cool game!" Height="768" Width="1024">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition> <!-- File row -->
-            <RowDefinition Height="*"></RowDefinition>    <!-- Middle row(* means give all available space)-->
-            <RowDefinition Height="225"></RowDefinition>  <!-- Bottom row(225px) -->
+            <RowDefinition Height="Auto"/> <!-- File row -->
+            <RowDefinition Height="*"/>    <!-- Middle row(* means give all available space)-->
+            <RowDefinition Height="225"/>  <!-- Bottom row(225px) -->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Menu" Background="AliceBlue"></Label>
-        <Label Grid.Row="1" Grid.Column="0" Content="Player Information" Background="Aquamarine"></Label>
-        <Label Grid.Row="1" Grid.Column="1" Content="Game Data" Background="Beige"></Label>
-        <Label Grid.Row="2" Grid.Column="0" Content="Inventory and Quests" Background="BurlyWood"></Label>
-        <Label Grid.Row="2" Grid.Column="1" Content="Combat/Movement controls" Background="Lavender"></Label>
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Menu" Background="AliceBlue"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="Player Information" Background="Aquamarine"/>
+        <Label Grid.Row="1" Grid.Column="1" Content="Game Data" Background="Beige"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="Inventory and Quests" Background="BurlyWood"/>
+        <Label Grid.Row="2" Grid.Column="1" Content="Combat/Movement controls" Background="Lavender"/>
     </Grid>
 </Window>
