@@ -13,6 +13,7 @@ namespace Engine.ViewModels
     public class GameSession
     {
         public Player curPlayer { get; set; }
+        public Location curLocation { get; set; }
 
         public GameSession()
         {
@@ -24,6 +25,13 @@ namespace Engine.ViewModels
             curPlayer.HitPoints = 10;
             curPlayer.ExperiencePoints = 0;
             curPlayer.Level = 1;
+
+            curLocation = new Location();
+            curLocation.Name = "Home";
+            curLocation.XCoordinate = 0;
+            curLocation.YCoordinate = -1;
+            curLocation.Description = "This is your house";
+            curLocation.ImageName = "/Engine;component/Images/Locations/Home.png";
         }
     }
 }
