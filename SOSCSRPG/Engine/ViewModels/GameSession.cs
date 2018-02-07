@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Engine.Factories;
 
 namespace Engine.ViewModels
 {
@@ -14,6 +15,7 @@ namespace Engine.ViewModels
     {
         public Player curPlayer { get; set; }
         public Location curLocation { get; set; }
+        public World curWorld { get; set; }
 
         public GameSession()
         {
@@ -26,12 +28,11 @@ namespace Engine.ViewModels
             curPlayer.ExperiencePoints = 0;
             curPlayer.Level = 1;
 
-            curLocation = new Location();
-            curLocation.Name = "Home";
-            curLocation.XCoordinate = 0;
-            curLocation.YCoordinate = -1;
-            curLocation.Description = "This is your house";
-            curLocation.ImageName = "/Engine;component/Images/Locations/Home.png";
+            WorldFactory worldFactory = new WorldFactory();
+
+            curWorld = worldFactory.CreateWorld();
+
+            curLocation = curWorld.LocationAt(0, -1);
         }
     }
 }

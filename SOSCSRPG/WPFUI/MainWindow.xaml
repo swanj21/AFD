@@ -83,7 +83,8 @@
                     <TextBlock Grid.Row="0" HorizontalAlignment="Center" Text="{Binding curLocation.Name}"/>
                     <Image Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" 
                            Height="125" Width="125" Source="{Binding curLocation.ImageName}"/>
-                    <TextBlock Grid.Row="2" HorizontalAlignment="Center" Text="{Binding curLocation.Description}"/>
+                    <TextBlock Grid.Row="2" HorizontalAlignment="Center" TextWrapping="Wrap" 
+                               Text="{Binding curLocation.Description}"/>
                 </Grid>
             </Border>
         </Grid>
