@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Engine.Models
 {
-    class Player
+    public class Player
     {
         public string playerName { get; set; }
         public string charClass { get; set; }

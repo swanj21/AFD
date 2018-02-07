@@ -10,9 +10,9 @@ namespace Engine.ViewModels
     /* This is used to manage the session as the player is 
        playing the game. 
     */
-    class GameSession
+    public class GameSession
     {
-        Player curPlayer { get; set; }
+        public Player curPlayer { get; set; }
 
         public GameSession()
         {
@@ -20,6 +20,10 @@ namespace Engine.ViewModels
 
             curPlayer.playerName = "Jerry";
             curPlayer.gold = 100500;
+            curPlayer.charClass = "Hunter";
+            curPlayer.hitPoints = 10;
+            curPlayer.expPoints = 0;
+            curPlayer.level = 1;
         }
     }
 }
