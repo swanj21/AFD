@@ -38,17 +38,17 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Row="0" Grid.Column="0" Content="Name:"/>
-            <Label Grid.Row="0" Grid.Column="1" Content="{Binding curPlayer.playerName}"/>
+            <Label Grid.Row="0" Grid.Column="1" Content="{Binding curPlayer.PlayerName}"/>
             <Label Grid.Row="1" Grid.Column="0" Content="Class:"/>
-            <Label Grid.Row="1" Grid.Column="1" Content="{Binding curPlayer.charClass}"/>
+            <Label Grid.Row="1" Grid.Column="1" Content="{Binding curPlayer.CharacterClass}"/>
             <Label Grid.Row="2" Grid.Column="0" Content="Health:"/>
-            <Label Grid.Row="2" Grid.Column="1" Content="{Binding curPlayer.hitPoints}"/>
+            <Label Grid.Row="2" Grid.Column="1" Content="{Binding curPlayer.HitPoints}"/>
             <Label Grid.Row="3" Grid.Column="0" Content="Gold:"/>
-            <Label Grid.Row="3" Grid.Column="1" Content="{Binding curPlayer.gold}"/>
+            <Label Grid.Row="3" Grid.Column="1" Content="{Binding curPlayer.Gold}"/>
             <Label Grid.Row="4" Grid.Column="0" Content="XP:"/>
-            <Label Grid.Row="4" Grid.Column="1" Content="{Binding curPlayer.expPoints}"/>
+            <Label Grid.Row="4" Grid.Column="1" Content="{Binding curPlayer.ExperiencePoints}"/>
             <Label Grid.Row="5" Grid.Column="0" Content="Level:"/>
-            <Label Grid.Row="5" Grid.Column="1" Content="{Binding curPlayer.level}"/>
+            <Label Grid.Row="5" Grid.Column="1" Content="{Binding curPlayer.Level}"/>
         </Grid> 
         <!--
         End of player information

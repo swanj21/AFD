@@ -18,12 +18,12 @@ namespace Engine.ViewModels
         {
             curPlayer = new Player();
 
-            curPlayer.playerName = "Jerry";
-            curPlayer.gold = 100500;
-            curPlayer.charClass = "Hunter";
-            curPlayer.hitPoints = 10;
-            curPlayer.expPoints = 0;
-            curPlayer.level = 1;
+            curPlayer.PlayerName = "Jerry";
+            curPlayer.Gold = 100500;
+            curPlayer.CharacterClass = "Hunter";
+            curPlayer.HitPoints = 10;
+            curPlayer.ExperiencePoints = 0;
+            curPlayer.Level = 1;
         }
     }
 }
