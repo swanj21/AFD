@@ -15,7 +15,7 @@ namespace Engine.Factories
             World world = new World();
             world.AddLocation(-2, -1, "Farmer's Field",
                 "There are rows of corn growing here, with giant rats hiding between them.",
-                "/Engine;component/Image/Locations/FarmFields.png");
+                "/Engine;component/Images/Locations/FarmFields.png");
             world.AddLocation(-1, -1, "Farmer's House",
                 "This is the house of your neighbor, Farmer Ted.",
                 "/Engine;component/Images/Locations/Farmhouse.png");

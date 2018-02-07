@@ -5,17 +5,64 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Engine.Factories;
+using System.ComponentModel;
 
 namespace Engine.ViewModels
 {
     /* This is used to manage the session as the player is 
        playing the game. 
     */
-    public class GameSession
+    public class GameSession : INotifyPropertyChanged
     {
+        private Location curLoc;
+
         public Player curPlayer { get; set; }
-        public Location curLocation { get; set; }
+        public Location curLocation
+        {
+            get { return curLoc; }
+            set
+            {
+                curLoc = value;
+                OnPropertyChanged("curLocation");
+                OnPropertyChanged("HasLocationToNorth");
+                OnPropertyChanged("HasLocationToWest");
+                OnPropertyChanged("HasLocationToEast");
+                OnPropertyChanged("HasLocationToSouth");
+            }
+        }
         public World curWorld { get; set; }
+
+        public bool HasLocationToNorth
+        {
+            get
+            {
+                return curWorld.LocationAt(curLocation.XCoordinate, curLocation.YCoordinate + 1) != null;
+            }
+        }
+
+        public bool HasLocationToWest
+        {
+            get
+            {
+                return curWorld.LocationAt(curLocation.XCoordinate - 1, curLocation.YCoordinate) != null;
+            }
+        }
+
+        public bool HasLocationToEast
+        {
+            get
+            {
+                return curWorld.LocationAt(curLocation.XCoordinate + 1, curLocation.YCoordinate) != null;
+            }
+        }
+
+        public bool HasLocationToSouth
+        {
+            get
+            {
+                return curWorld.LocationAt(curLocation.XCoordinate, curLocation.YCoordinate - 1) != null;
+            }
+        }
 
         public GameSession()
         {
@@ -33,6 +80,30 @@ namespace Engine.ViewModels
             curWorld = worldFactory.CreateWorld();
 
             curLocation = curWorld.LocationAt(0, -1);
+        }
+
+        public void MoveNorth()
+        {
+            curLocation = curWorld.LocationAt(curLocation.XCoordinate, curLocation.YCoordinate + 1);
+        }
+        public void MoveWest()
+        {
+            curLocation = curWorld.LocationAt(curLocation.XCoordinate - 1, curLocation.YCoordinate);
+        }
+        public void MoveEast()
+        {
+            curLocation = curWorld.LocationAt(curLocation.XCoordinate + 1, curLocation.YCoordinate);
+        }
+        public void MoveSouth()
+        {
+            curLocation = curWorld.LocationAt(curLocation.XCoordinate, curLocation.YCoordinate - 1);
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        { // ? means that if anyone is listening, do the Invoke.
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
