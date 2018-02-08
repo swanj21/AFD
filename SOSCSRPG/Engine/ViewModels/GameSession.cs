@@ -12,7 +12,7 @@ namespace Engine.ViewModels
     /* This is used to manage the session as the player is 
        playing the game. 
     */
-    public class GameSession : INotifyPropertyChanged
+    public class GameSession : BasePropertyChangedClass
     {
         private Location curLoc;
 
@@ -23,14 +23,26 @@ namespace Engine.ViewModels
             set
             {
                 curLoc = value;
-                OnPropertyChanged("curLocation");
-                OnPropertyChanged("HasLocationToNorth");
-                OnPropertyChanged("HasLocationToWest");
-                OnPropertyChanged("HasLocationToEast");
-                OnPropertyChanged("HasLocationToSouth");
+                OnPropertyChanged(nameof(curLocation));
+                OnPropertyChanged(nameof(HasLocationToNorth));
+                OnPropertyChanged(nameof(HasLocationToWest));
+                OnPropertyChanged(nameof(HasLocationToEast));
+                OnPropertyChanged(nameof(HasLocationToSouth));
             }
         }
         public World curWorld { get; set; }
+
+        public GameSession()
+        {
+            curPlayer = new Player{
+                PlayerName ="Jerry", Gold=100500, CharacterClass="Hunter",
+                HitPoints =10, ExperiencePoints=0, Level=1
+            };
+
+            curWorld = WorldFactory.CreateWorld();
+
+            curLocation = curWorld.LocationAt(0, -1);
+        }
 
         public bool HasLocationToNorth
         {
@@ -64,46 +76,25 @@ namespace Engine.ViewModels
             }
         }
 
-        public GameSession()
-        {
-            curPlayer = new Player();
-
-            curPlayer.PlayerName = "Jerry";
-            curPlayer.Gold = 100500;
-            curPlayer.CharacterClass = "Hunter";
-            curPlayer.HitPoints = 10;
-            curPlayer.ExperiencePoints = 0;
-            curPlayer.Level = 1;
-
-            WorldFactory worldFactory = new WorldFactory();
-
-            curWorld = worldFactory.CreateWorld();
-
-            curLocation = curWorld.LocationAt(0, -1);
-        }
-
         public void MoveNorth()
         {
-            curLocation = curWorld.LocationAt(curLocation.XCoordinate, curLocation.YCoordinate + 1);
+            if (HasLocationToNorth)
+                curLocation = curWorld.LocationAt(curLocation.XCoordinate, curLocation.YCoordinate + 1);
         }
         public void MoveWest()
         {
-            curLocation = curWorld.LocationAt(curLocation.XCoordinate - 1, curLocation.YCoordinate);
+            if (HasLocationToWest)
+                curLocation = curWorld.LocationAt(curLocation.XCoordinate - 1, curLocation.YCoordinate);
         }
         public void MoveEast()
         {
-            curLocation = curWorld.LocationAt(curLocation.XCoordinate + 1, curLocation.YCoordinate);
+            if (HasLocationToEast)
+                curLocation = curWorld.LocationAt(curLocation.XCoordinate + 1, curLocation.YCoordinate);
         }
         public void MoveSouth()
         {
-            curLocation = curWorld.LocationAt(curLocation.XCoordinate, curLocation.YCoordinate - 1);
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        { // ? means that if anyone is listening, do the Invoke.
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            if (HasLocationToSouth)
+                curLocation = curWorld.LocationAt(curLocation.XCoordinate, curLocation.YCoordinate - 1);
         }
     }
 }

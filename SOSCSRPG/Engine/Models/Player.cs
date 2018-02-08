@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Engine.Models
 {
     // INotifyPropertyChanged: View needs to listen to any changes to this class' properties
-    public class Player : INotifyPropertyChanged
+    public class Player : BasePropertyChangedClass
     {
         private string playerName;
         private string characterClass;
@@ -23,7 +23,7 @@ namespace Engine.Models
             set
             {
                 playerName = value;
-                OnPropertyChanged("PlayerName");
+                OnPropertyChanged(nameof(PlayerName));
             }
         }
 
@@ -33,7 +33,7 @@ namespace Engine.Models
             set
             {
                 characterClass = value;
-                OnPropertyChanged("CharacterClass");
+                OnPropertyChanged(nameof(CharacterClass));
             }
         }
 
@@ -43,7 +43,7 @@ namespace Engine.Models
             set
             {
                 hitPoints = value;
-                OnPropertyChanged("HitPoints");
+                OnPropertyChanged(nameof(HitPoints));
             }
         }
 
@@ -53,7 +53,7 @@ namespace Engine.Models
             set
             {
                 experiencePoints = value;
-                OnPropertyChanged("ExperiencePoints");
+                OnPropertyChanged(nameof(ExperiencePoints));
             }
         }
 
@@ -63,7 +63,7 @@ namespace Engine.Models
             set
             {
                 level = value;
-                OnPropertyChanged("Level");
+                OnPropertyChanged(nameof(Level));
             }
         }
 
@@ -73,15 +73,8 @@ namespace Engine.Models
             set
             {
                 gold = value;
-                OnPropertyChanged("Gold");
+                OnPropertyChanged(nameof(Gold));
             }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        { // ? means that if anyone is listening, do the Invoke.
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

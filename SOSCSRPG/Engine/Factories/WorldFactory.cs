@@ -8,9 +8,9 @@ using Engine.Models;
 namespace Engine.Factories
 {
     // class WorldFactory is by default an internal class
-    internal class WorldFactory
+    internal static class WorldFactory
     {
-        internal World CreateWorld()
+        internal static World CreateWorld()
         {
             World world = new World();
             world.AddLocation(-2, -1, "Farmer's Field",
