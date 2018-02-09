@@ -6,7 +6,22 @@ using System.Threading.Tasks;
 
 namespace Engine.Models
 {
-    class GameItem
+    public class GameItem
     {
+        public int ItemID { get; set; }
+        public string Name { get; set; }
+        public int Price { get; set; }
+
+        public GameItem(int itemID, string name, int price)
+        {
+            ItemID = itemID;
+            Name = name;
+            Price = price; // Maybe price only for things you can buy?
+        }
+
+        public GameItem Clone()
+        {
+            return new GameItem(ItemID, Name, Price);
+        }
     }
 }

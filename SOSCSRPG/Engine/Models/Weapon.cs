@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace Engine.Models
 {
-    class Weapon
+    public class Weapon : GameItem
     {
+        public int MinDamage { get; set; }
+        public int MaxDamage { get; set; }
+
+        public Weapon(int itemID, string name, int price, int minDamage, int maxDamage) 
+            : base(itemID, name, price)
+        {
+            MinDamage = minDamage;
+            MaxDamage = maxDamage;
+        }
+
+        public new Weapon Clone()
+        {
+            return new Weapon(ItemID, Name, Price, MinDamage, MaxDamage);
+        }
     }
 }
