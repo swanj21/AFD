@@ -39,4 +39,18 @@ Add pets
 	- Helps in combat? Change name?
 More complex combat(apply armor/weapon/jewelry/potion/spell bonuses)
 Populate world(locations/monsters/items/quests/etc.) from disk(files or DB)
-Game creator app, let people create their own locations/monsters/items/quests/etc without writing any code(creates files or adds to DB)
+(MAYBE?)Game creator app, let people create their own locations/monsters/items/quests/etc without writing any code(creates files or adds to DB)
+
+Custom Additions
+----------------
+Add a 'conversation' mechanic
+	- NPC says something
+	- Player says something
+		- What the player says can be chosen by the user
+Add NPCs to specific locations
+Player can interact with specific NPCs
+	- Talk
+	- Recruit
+		- Only be completing a certain objective or having a certain item or statistic
+	- Get quests
+Integrate a story into the game
