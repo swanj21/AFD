@@ -25,7 +25,7 @@ namespace Engine.Factories
 
         internal static Quest GetQuestByID(int id)
         {
-            return quests.FirstOrDefault(quest => quest.ID == id);
+            return quests.FirstOrDefault(q => q.ID == id);
         }
     }
 }

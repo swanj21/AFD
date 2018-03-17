@@ -30,7 +30,7 @@ namespace Engine.Models
         }
         public List<Quest> QuestsAvailable
         {
-            get;set;
-        }
+            get; set;
+        } = new List<Quest>();
     }
 }
