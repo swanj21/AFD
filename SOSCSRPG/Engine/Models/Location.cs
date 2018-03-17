@@ -28,5 +28,9 @@ namespace Engine.Models
         {
             get;set;
         }
+        public List<Quest> QuestsAvailable
+        {
+            get;set;
+        }
     }
 }

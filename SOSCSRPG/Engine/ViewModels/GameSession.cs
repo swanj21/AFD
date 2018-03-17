@@ -15,7 +15,6 @@ namespace Engine.ViewModels
     public class GameSession : BasePropertyChangedClass
     {
         private Location curLoc;
-
         public Player curPlayer { get; set; }
         public Location curLocation
         {
@@ -28,8 +27,11 @@ namespace Engine.ViewModels
                 OnPropertyChanged(nameof(HasLocationToWest));
                 OnPropertyChanged(nameof(HasLocationToEast));
                 OnPropertyChanged(nameof(HasLocationToSouth));
+
+                GivePlayerQuestsAtLocation();
             }
         }
+
         public World curWorld { get; set; }
 
         public GameSession()
@@ -95,6 +97,15 @@ namespace Engine.ViewModels
         {
             if (HasLocationToSouth)
                 curLocation = curWorld.LocationAt(curLocation.XCoordinate, curLocation.YCoordinate - 1);
+        }
+
+        private void GivePlayerQuestsAtLocation()
+        {
+            foreach(Quest quest in curLoc.QuestsAvailable)
+            {
+                if (!curPlayer.Quests.Any(q => q.playerQuest.ID == quest.ID))
+                    curPlayer.Quests.Add(new QuestStatus(quest));
+            }
         }
     }
 }
