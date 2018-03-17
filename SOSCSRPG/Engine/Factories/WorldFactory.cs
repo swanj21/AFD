@@ -7,7 +7,7 @@ using Engine.Models;
 
 namespace Engine.Factories
 {
-    // class WorldFactory is by default an internal class
+    // WorldFactory is by default an internal class
     internal static class WorldFactory
     {
         internal static World CreateWorld()
